@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ckebli60whgy4"]
+
+[ext_resource type="Texture2D" uid="uid://m7vkjvxwdjjw" path="res://Wepon/Sword/Sprite-0001.png" id="1_rx5id"]
+[ext_resource type="Script" uid="uid://cbfu0r1a3mkdh" path="res://sword.gd" id="1_v4ynp"]
+[ext_resource type="Texture2D" uid="uid://n8u3a6b6j610" path="res://Wepon/Sword/Sprite-0002.png" id="2_v4ynp"]
+[ext_resource type="Texture2D" uid="uid://cy0nqs6al71ja" path="res://Wepon/Sword/Sprite-0003.png" id="3_83fnj"]
+[ext_resource type="Texture2D" uid="uid://bnms3ppvt03ux" path="res://Wepon/Sword/Sprite-0004.png" id="4_fahsa"]
+[ext_resource type="Texture2D" uid="uid://dkl0kxxd4b54l" path="res://Wepon/Sword/Sprite-0005.png" id="5_1o1wo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4l2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rx5id")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_v4ynp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_83fnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fahsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1o1wo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12tba"]
+size = Vector2(22, 22)
+
+[node name="Sword" type="Area2D" unique_id=276207927]
+script = ExtResource("1_v4ynp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=822021251]
+position = Vector2(4, -5)
+sprite_frames = SubResource("SpriteFrames_k4l2t")
+autoplay = "default"
+frame = 3
+frame_progress = 0.7699383
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"should_round_fps": true,
+"slice": "",
+"source": "res://Wepon/Sword/Sprite-0001.ase",
+"source_uid": 438150476142545328
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1388875774]
+position = Vector2(5, -5)
+shape = SubResource("RectangleShape2D_12tba")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
